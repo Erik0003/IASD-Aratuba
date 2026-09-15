@@ -5,14 +5,12 @@
 :root {
     --branco: white;
     --preto: black;
-    --cinza_escuro: #212121;
     --cinza_claro: #404040f5;
     --bege: rgb(251, 210, 128);
     --vermelho: rgb(209, 4, 4);
 }
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
     background: var(--branco);
     color: var(--preto);
@@ -181,7 +179,7 @@ header {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 10px 0;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .card:hover {
@@ -248,6 +246,7 @@ h2 {
 }
 
 img {
+    display: block;
     max-width: 100%;
 }
 
@@ -279,6 +278,15 @@ img {
         padding: 10px;
     }
 
+    .navbar {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+    }
+
     .logo {
         justify-content: center;
     }
@@ -296,31 +304,16 @@ img {
 
     .menu li {
         padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .navbar {
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
     }
 
     .navbar.active {
         max-height: 500px;
-        opacity: 1;
         transform: translateY(0);
-    }
-
-    .navbar.active {
-        max-height: 500px;
         opacity: 1;
         background: var(--bege);
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+    }
 }
 
 @media (min-width: 769px) {
